@@ -12,6 +12,9 @@ class BBCoder
       tag, meta = if original_tag.include?("=")
                     splits = original_tag.split("=")
                     [splits.shift.downcase.to_sym, splits.join('=')]
+                  elsif original_tag.include?(":")
+                    splits = original_tag.split(":")
+                    [splits.shift.downcase.to_sym, splits.join(':')]
                   else
                     [original_tag.downcase.to_sym, nil]
                   end
